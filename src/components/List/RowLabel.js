@@ -89,26 +89,29 @@ const LabelText = styled(Text)`
   overflow: hidden;
 `;
 
-const renderLabel = (label, variant) => {
+const renderLabel = (label, variant, type) => {
+  
+  
+  
   switch (variant) {
     case "alert":
       return <StatusBadge label={label} color={themes.global.error.base} />;
     case "positive":
       return (
         <LabelText primary sentiment="positive" variant="accent">
-          {label}
+          {label} positive
         </LabelText>
       );
     case "accent":
       return (
         <LabelText primary sentiment="accent" variant="accent">
-          {label}
+          {label} accent
         </LabelText>
       );
     case "caution":
-      return <StatusBadge label={label} color={themes.global.caution.dark} />;
+      return <StatusBadge label={`${label} caution`} color={themes.global.caution.dark} />;
     case "neutral":
-      return <StatusBadge label={label} color={themes.global.onyx.light} />;
+      return <StatusBadge label={`${label} neutral`} color={themes.global.onyx.light} />;
     default:
       return <LabelText primary>{label}</LabelText>;
   }
